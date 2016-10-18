@@ -1,3 +1,2 @@
-<p>
-  calendar-day works!
-</p>
+<div class="{{ klass }}" [title]="day.weekday"
+    (click)="dayClick()" (mouseover)="dayMouseOver()" (mouseout)="dayMouseOut()">{{day.day}}</div>

@@ -1,0 +1,49 @@
+.calendar--day {
+    cursor: pointer;
+    outline: 1px solid #dedede;
+    padding: 3em 2em;
+    text-align: center;
+}
+
+.is-weekend {
+    background: #ccc;
+}
+
+.is-between,
+.is-hover {
+    background: lighten(darkseagreen, 20%);
+}
+
+.is-today {
+    background: lightcoral;
+    color: #fff;
+    font-weight: bold;
+}
+
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.event--start,
+.event--end {
+    background: darkseagreen;
+    color: #fff;
+    &::after {
+        bottom: 0.75em;
+        content: "\1F4CC";
+        position: absolute;
+        right: 0.5em;
+        @media screen and (max-width: 767px) {
+            bottom: 0.4em;
+            font-size: 0.6em;
+            right: 0.2em;
+        }
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .calendar--day {
+        padding: 0.5em;
+    }
+}

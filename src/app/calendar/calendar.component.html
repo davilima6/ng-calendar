@@ -1,3 +1,30 @@
-<p>
-  calendar works!
-</p>
+<div>
+  
+  <div class="event--choice" *ngIf="eventStart && eventEnd">
+    <h2>You've selected a date range!</h2>
+    <p>
+      Your choice was from <span class="event--day event--start">{{ eventStart.date.toDate()|date }}</span>
+      to <span class="event--day event--end">{{ eventEnd.date.toDate()|date }}</span>.</p>
+    <h5><a class="event--tryagain" (click)="clearChoice()">Wanna try again?</a></h5>
+  </div>
+
+  <div class="table">
+    <div class="table--title">
+      <h1>{{ month }} {{ year }}</h1>
+    </div>
+    <div class="table--header">
+      <div class="table--weekday" *ngFor="let day of weekdays">{{day}}</div>
+    </div>
+    <div class="table--body">
+      <div class="table--week" *ngFor="let week of weeks">
+        <app-calendar-day class="table--day"
+            [day]="day" [selection]="selection" [eventStart]="eventStart" [eventEnd]="eventEnd"
+            (makeSelection)="makeSelection($event)" (updateLastHover)="updateLastHover($event)"
+            *ngFor="let day of week"></app-calendar-day>
+      </div>
+    </div>
+  </div>
+
+  <p class="go-to-top"><a href="javascript:window.scrollTo(0, 0)">Go to top</a></p>
+
+</div>

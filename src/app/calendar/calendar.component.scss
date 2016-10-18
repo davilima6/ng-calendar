@@ -1,0 +1,93 @@
+.table {
+    font-family: Arial;
+    margin: 0 auto 2em;
+    width: 80%;
+}
+
+.table--title {
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+.table--weekday {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.table--header,
+.table--week {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.table--header {
+    border-top: 0.25em solid grey;
+    height: 2.5em;
+    padding-top: 0.75em;
+}
+
+.table--week:first-child {
+    justify-content: flex-end;
+}
+
+.table--weekday,
+.table--day {
+    flex-basis: 14.28%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    // height: 250px;
+    // width: 300px;
+}
+
+.event--choice {
+    background: lightseagreen;
+    border-radius: 5px;
+    display: table;
+    font: bold 2em Arial;
+    margin: 0 auto 2em;
+    text-align: center;
+    width: 80%;
+}
+
+.event--day {
+    color: #fff;
+}
+
+.event--tryagain {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+        color: #000;
+    }
+}
+
+.go-to-top {
+    font-family: Arial;
+    text-align: center;
+    a {
+        color: coral;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .table {
+        width: 95%;
+    }
+    .table--title {
+        margin: 0;
+    }
+}
