@@ -1,6 +1,6 @@
 import { NgCalendarPage } from './app.po';
 
-describe('calendar-ridelink App', function() {
+describe('NgCalendar App', function() {
   let page: NgCalendarPage;
 
   beforeEach(() => {
