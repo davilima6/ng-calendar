@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class CalendarRidelinkPage {
+export class NgCalendarPage {
   navigateTo() {
     return browser.get('/');
   }

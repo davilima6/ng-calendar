@@ -1,10 +1,10 @@
-import { CalendarRidelinkPage } from './app.po';
+import { NgCalendarPage } from './app.po';
 
 describe('calendar-ridelink App', function() {
-  let page: CalendarRidelinkPage;
+  let page: NgCalendarPage;
 
   beforeEach(() => {
-    page = new CalendarRidelinkPage();
+    page = new NgCalendarPage();
   });
 
   it('should display message saying app works', () => {
