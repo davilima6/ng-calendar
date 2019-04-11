@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { ISelection } from '../iselection';
-import { CalendarDay } from '../calendar-day';
+import { ISelection } from '../../shared/models/iselection';
+import { CalendarDay } from '../../shared/models/calendar-day';
 import { CalendarService } from '../calendar.service';
 
 @Component({
@@ -110,5 +110,4 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   private _isBetween(date1, date2): boolean {
     return (this.day.date.isBetween(date1, date2) || this.day.date.isBetween(date2, date1));
   }
-
 }

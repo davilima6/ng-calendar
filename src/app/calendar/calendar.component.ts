@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { ISelection } from './iselection';
-import { CalendarDay } from './calendar-day';
+import { Component, OnInit } from '@angular/core';
+import { ISelection } from '../shared/models/iselection';
+import { CalendarDay } from '../shared/models/calendar-day';
 import { CalendarService } from './calendar.service';
 
 

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-import { CalendarDay } from './calendar-day';
+import { Injectable } from '@angular/core';
+import { CalendarDay } from '../shared/models/calendar-day';
 
 
 @Injectable()
