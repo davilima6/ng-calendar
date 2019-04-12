@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CalendarService } from './calendar/services/calendar.service'
 import { CalendarComponent } from './calendar/components/calendar/calendar.component';
 import { CalendarDayComponent } from './calendar/components/calendar-day/calendar-day.component';
 
@@ -19,7 +18,7 @@ import { CalendarDayComponent } from './calendar/components/calendar-day/calenda
     FormsModule,
     HttpClientModule
   ],
-  providers: [CalendarService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

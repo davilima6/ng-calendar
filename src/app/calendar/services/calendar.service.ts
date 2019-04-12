@@ -2,7 +2,9 @@ import * as moment from 'moment';
 import { Injectable } from '@angular/core';
 import { CalendarDay } from '../models/calendar-day';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CalendarService {
   constructor() {}
 
