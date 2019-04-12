@@ -1,9 +1,8 @@
 import * as moment from 'moment';
 import { Component, OnInit } from '@angular/core';
-import { ISelection } from '../shared/models/iselection';
-import { CalendarDay } from '../shared/models/calendar-day';
-import { CalendarService } from './calendar.service';
-
+import { ISelection } from '../../interfaces/iselection';
+import { CalendarDay } from '../../models/calendar-day';
+import { CalendarService } from '../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar',
@@ -37,6 +36,7 @@ export class CalendarComponent implements OnInit {
     if (!day || this.selection.isSelected) {
       return;
     };
+
     this.selection.isSelecting = !this.selection.isSelecting;
     if (this.selection.isSelecting) {
       this.eventStart = day;
@@ -58,5 +58,4 @@ export class CalendarComponent implements OnInit {
   updateLastHover(day) {
     this.selection.lastHover = day;
   }
-
 }

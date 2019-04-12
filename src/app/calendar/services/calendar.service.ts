@@ -1,16 +1,15 @@
 import * as moment from 'moment';
 import { Injectable } from '@angular/core';
-import { CalendarDay } from '../shared/models/calendar-day';
-
+import { CalendarDay } from '../models/calendar-day';
 
 @Injectable()
 export class CalendarService {
-
   constructor() {}
 
   private _getDays(): Array<CalendarDay> {
     let daysInMonth: number = moment().daysInMonth();
     let days: CalendarDay[] = [];
+
     for (let day = 1; day <= daysInMonth; day++) {
       let curDay: moment.Moment = moment({
         year: moment().year(),
@@ -26,6 +25,7 @@ export class CalendarService {
       };
       days.push(newDay);
     }
+
     return days;
   }
 
@@ -33,6 +33,7 @@ export class CalendarService {
     let weeks: any[] = [];
     let week: CalendarDay[] = [];
     let days: CalendarDay[] = this._getDays();
+
     for (let day of days) {
       week.push(day);
       if (week.length && day.date.weekday() === 6) {
@@ -41,16 +42,19 @@ export class CalendarService {
       }
     }
     weeks.push(week);
+
     return weeks;
   }
 
   getWeekdays(isMin): Array<string> {
     let days: string[];
+
     if (!isMin) {
       days = moment.weekdays();
     } else {
       days = moment.weekdaysMin();
     }
+
     return days;
   }
 
@@ -61,5 +65,4 @@ export class CalendarService {
   isToday(day: CalendarDay): boolean {
     return (day.date.isSame(moment(), 'day'));
   }
-
 }

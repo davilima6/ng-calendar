@@ -1,8 +1,8 @@
 import * as moment from 'moment';
 
 import { CalendarDayComponent } from './calendar-day.component';
-import { CalendarService } from '../calendar.service';
-import { CalendarDay } from '../../shared/models/calendar-day';
+import { CalendarService } from '../../services/calendar.service';
+import { CalendarDay } from '../../models/calendar-day';
 
 describe('Component: CalendarDay', () => {
   it('should create an instance', () => {

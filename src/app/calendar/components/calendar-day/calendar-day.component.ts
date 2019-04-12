@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { ISelection } from '../../shared/models/iselection';
-import { CalendarDay } from '../../shared/models/calendar-day';
-import { CalendarService } from '../calendar.service';
+import { ISelection } from '../../interfaces/iselection';
+import { CalendarDay } from '../../models/calendar-day';
+import { CalendarService } from '../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar-day',
@@ -15,7 +15,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   @Input() selection: ISelection;
   @Output() makeSelection: EventEmitter<CalendarDay> = new EventEmitter();
   @Output() updateLastHover: EventEmitter<CalendarDay> = new EventEmitter();
-  klass: string = 'calendar--day';
+  klass = 'calendar--day';
   lastHover: CalendarDay;
   private _isToday: boolean;
 
@@ -42,6 +42,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
     if (!this.selection.isSelecting || this.selection.isSelected) {
       return;
     };
+
     this.updateLastHover.emit(this.day);
   }
 
@@ -54,6 +55,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   private _paintDayInRange(changes): void {
     // Paint day if it's between start and end dates
     let eventEnd: CalendarDay = changes.eventEnd && changes.eventEnd.currentValue;
+
     if (this.selection.isSelected && eventEnd) {
       this.klass += this._isBetween(this.eventStart.date, this.eventEnd.date) ? ' is-between' : '';
     } else {
@@ -67,6 +69,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
     let lastHover: CalendarDay = changes.lastHover;
     let eventStart: CalendarDay = changes.eventStart && changes.eventStart.currentValue;
     let eventEnd: CalendarDay = changes.eventEnd && changes.eventEnd.currentValue;
+
     if (eventStart && !eventEnd && lastHover) {
       this.klass += this._isBetween(eventStart.date, lastHover.date) ? ' is-hover' : '';
     } else if (eventStart && eventEnd) {
@@ -79,14 +82,17 @@ export class CalendarDayComponent implements OnInit, OnChanges {
     // Mark event start
     let isSelected: boolean = this.selection.isSelected;
     let eventStart: CalendarDay = changes.eventStart && changes.eventStart.currentValue;
+
     if (eventStart) {
       this.klass += this.day.date.isSame(eventStart.date, 'day') ? ' event--start' : '';
     } else if (!isSelected) {
       // Reset UI when selection is cleared
       this.klass = this.klass.replace(' event--start', '');
     }
+
     // Mark event end
     let eventEnd: CalendarDay = changes.eventEnd && changes.eventEnd.currentValue;
+
     if (eventEnd) {
       this.klass += this.day.date.isSame(eventEnd.date, 'day') ? ' event--end  ' : '';
     } else if (!isSelected) {
@@ -99,6 +105,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
     // Disallow UI when selection is finished
     let isSelecting: boolean = this.selection.isSelecting;
     let isSelected: boolean = this.selection.isSelected;
+
     if (isSelected) {
       this.klass += ' not-allowed';
     } else if (!isSelecting) {
